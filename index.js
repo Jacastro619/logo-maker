@@ -10,7 +10,7 @@ const questions = [
     message: "What text would you like in logo? (up to three characters)",
     name: "text",
     validate: (input) => {
-      if (input.length < 3) {
+      if (input.length > 3) {
         return `Character limit exceeded.`;
       }
       return true;
@@ -41,7 +41,7 @@ function init() {
       case "triangle":
         const triangle = new Shapes.Triangle(
           data.shapeColor,
-          data.text,
+          data.text.toUpperCase(),
           data.textColor
         );
         writeToFile("./examples/logo.svg", triangle);
@@ -49,7 +49,7 @@ function init() {
       case "square":
         const square = new Shapes.Square(
           data.shapeColor,
-          data.text,
+          data.text.toUpperCase(),
           data.textColor
         );
         writeToFile("./examples/logo.svg", square);
@@ -57,7 +57,7 @@ function init() {
       case "circle":
         const circle = new Shapes.Circle(
           data.shapeColor,
-          data.text,
+          data.text.toUpperCase(),
           data.textColor
         );
         writeToFile("./examples/logo.svg", circle);
